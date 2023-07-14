@@ -1,0 +1,19 @@
+::: Main
+
+- Menu (parecido com o menu do vscode quando vc abre sem projeto)
+- aba em cima com opção "File", onde você pode dar close e open project (sabe tb)
+- reformulação de json para classe
+- alteração nas nomenclaturas e planejamento geral das funções e códigos
+- UI e UX (principal)
+-Desenvolvimento em algum framework para agilizar o processo e deixar qualquer mudança mais fácil
+
+::: Influencia diretamente
+
+- Mudar sistema de câmera, pois quero implementar a movimentação de planos com o mouse
+- reformulaçao das classes de css
+- planejamento do codigo pensando em animações
+- UI mais parecida com a de programas 3d famosos
+- interface de animação
+- formas 2d e 3d como ideia principal para facilitação
+- atalhos para usuarios experientes
+- compiladores para js vanilla, react e vue

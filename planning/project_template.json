@@ -1,0 +1,121 @@
+[
+    {
+        "id": 0,
+        "name": "nogroup",
+        "currentPhase": "default",
+        "phases": [
+            {
+                "name": "default",
+                "transformations": {
+                    "translation": {
+                        "x": { "value": 0, "transitionDelay": 0 },
+                        "y": { "value": 0, "transitionDelay": 0 },
+                        "z": { "value": 0, "transitionDelay": 0 }
+                    },
+                    "rotation": {
+                        "x": { "value": 0, "transitionDelay": 0 },
+                        "y": { "value": 0, "transitionDelay": 0 },
+                        "z": { "value": 0, "transitionDelay": 0 }
+                    },
+                    "scale": { "value": 1, "transitionDelay": 0 }
+                },
+                "polygons": [
+                    {
+                        "id": 1,
+                        "name": "polygon1",
+                        "type": "rectangle",
+                        "transformations": {
+                            "translation": {
+                                "x": { "value": 0, "transitionDelay": 0 },
+                                "y": { "value": 0, "transitionDelay": 0 },
+                                "z": { "value": 0, "transitionDelay": 0 }
+                            },
+                            "rotation": {
+                                "x": { "value": 0, "transitionDelay": 0 },
+                                "y": { "value": 0, "transitionDelay": 0 },
+                                "z": { "value": 0, "transitionDelay": 0 }
+                            },
+                            "scale": {
+                                "x": { "value": 1, "transitionDelay": 0 },
+                                "y": { "value": 1, "transitionDelay": 0 },
+                                "z": { "value": 1, "transitionDelay": 0 }
+                            }
+                        },
+                        "params": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "name": "group1",
+        "currentPhase": "phase1",
+        "phases": [
+            {
+                "name": "phase1",
+                "transformations": {
+                    "translation": {
+                        "x": { "value": 0, "transitionDelay": 0 },
+                        "y": { "value": 0, "transitionDelay": 0 },
+                        "z": { "value": 0, "transitionDelay": 0 }
+                    },
+                    "rotation": {
+                        "x": { "value": 0, "transitionDelay": 0 },
+                        "y": { "value": 0, "transitionDelay": 0 },
+                        "z": { "value": 0, "transitionDelay": 0 }
+                    },
+                    "scale": { "value": 1, "transitionDelay": 0 }
+                },
+                "polygons": [
+                    {
+                        "id": 2,
+                        "name": "polygon2",
+                        "type": "rectangle",
+                        "transformations": {
+                            "translation": {
+                                "x": { "value": 0, "transitionDelay": 0 },
+                                "y": { "value": 0, "transitionDelay": 0 },
+                                "z": { "value": 0, "transitionDelay": 0 }
+                            },
+                            "rotation": {
+                                "x": { "value": 0, "transitionDelay": 0 },
+                                "y": { "value": 0, "transitionDelay": 0 },
+                                "z": { "value": 0, "transitionDelay": 0 }
+                            },
+                            "scale": {
+                                "x": { "value": 1, "transitionDelay": 0 },
+                                "y": { "value": 1, "transitionDelay": 0 },
+                                "z": { "value": 1, "transitionDelay": 0 }
+                            }
+                        },
+                        "params": [
+                            {
+                                "param": "color",
+                                "reserved": false,
+                                "value": "#ff0000",
+                                "transitionDelay": 0
+                            },
+                            {
+                                "param": "texture",
+                                "reserved": true,
+                                "value": {
+                                    "path": "./texture1.png",
+                                    "translation": {
+                                        "x": 0,
+                                        "y": 0
+                                    },
+                                    "scale": {
+                                        "x": 100,
+                                        "y": 100
+                                    }
+                                },
+                                "transitionDelay": 0
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
