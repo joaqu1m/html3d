@@ -1,0 +1,36 @@
+<body>
+    <h2>conversor para base64</h2>
+    <img id="image" width="100px">
+    <h2>converta agora:</h2>
+    <p>Upload de mídia</p>
+    <input type="file" id="fileinput">
+    <p>Upload por URL</p>
+    <input type="text" id="urlinput">
+</body>
+<script>
+    function carregarImagem(param) {
+        document.getElementById("image").src = param
+    }
+
+    document.getElementById("fileinput").onchange = ({ target }) => {
+        blobToBase64(target.files[0], carregarImagem)
+    }
+    document.getElementById("urlinput").onchange = ({ target }) => {
+        fetch(target.value, { method: "GET" })
+        .then(blob => {
+            blob.blob()
+            .then(res => { blobToBase64(res, carregarImagem) })
+            .catch(console.log)
+        })
+        .catch(console.log)
+    }
+
+    async function blobToBase64(blob, callback) {
+        const reader = new FileReader()
+        reader.onloadend = () => {
+            callback(reader.result)
+        }
+        reader.onerror = console.log
+        reader.readAsDataURL(blob)
+    }
+</script>

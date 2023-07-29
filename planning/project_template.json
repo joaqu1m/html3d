@@ -23,7 +23,7 @@
                     {
                         "id": 1,
                         "name": "polygon1",
-                        "type": "rectangle",
+                        "type": "polygon",
                         "transformations": {
                             "translation": {
                                 "x": { "value": 0, "transitionDelay": 0 },
@@ -71,7 +71,7 @@
                     {
                         "id": 2,
                         "name": "polygon2",
-                        "type": "rectangle",
+                        "type": "polygon",
                         "transformations": {
                             "translation": {
                                 "x": { "value": 0, "transitionDelay": 0 },
@@ -91,25 +91,98 @@
                         },
                         "params": [
                             {
-                                "param": "color",
-                                "reserved": false,
-                                "value": "#ff0000",
+                                "param": "bg_color",
+                                "reserved": true,
+                                "values": [
+                                    { "spot": "front", "value": "#ff0000" },
+                                    { "spot": "back", "value": "#ff0000" },
+                                    { "spot": "side_0", "value": "#ff0000" }
+                                ],
                                 "transitionDelay": 0
                             },
                             {
                                 "param": "texture",
                                 "reserved": true,
-                                "value": {
-                                    "path": "./texture1.png",
-                                    "translation": {
-                                        "x": 0,
-                                        "y": 0
+                                "values": [
+                                    {
+                                        "spot": "front",
+                                        "url": null,
+                                        "translation": {
+                                            "x": 0,
+                                            "y": 0
+                                        },
+                                        "scale": {
+                                            "x": 1,
+                                            "y": 1
+                                        }
                                     },
-                                    "scale": {
-                                        "x": 100,
-                                        "y": 100
+                                    {
+                                        "spot": "back",
+                                        "url": null,
+                                        "translation": {
+                                            "x": 0,
+                                            "y": 0
+                                        },
+                                        "scale": {
+                                            "x": 1,
+                                            "y": 1
+                                        }
+                                    },
+                                    {
+                                        "spot": "side_0",
+                                        "url": null,
+                                        "translation": {
+                                            "x": 0,
+                                            "y": 0
+                                        },
+                                        "scale": {
+                                            "x": 1,
+                                            "y": 1
+                                        }
                                     }
-                                },
+                                ],
+                                "transitionDelay": 0
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "name": "polygon2",
+                        "type": "circle",
+                        "transformations": {
+                            "translation": {
+                                "x": { "value": 0, "transitionDelay": 0 },
+                                "y": { "value": 0, "transitionDelay": 0 },
+                                "z": { "value": 0, "transitionDelay": 0 }
+                            },
+                            "scale": {
+                                "x": { "value": 1, "transitionDelay": 0 }
+                            }
+                        },
+                        "params": [
+                            {
+                                "param": "bg_color",
+                                "reserved": true,
+                                "values": [{ "spot": "front", "value": "#ff0000" }],
+                                "transitionDelay": 0
+                            },
+                            {
+                                "param": "texture",
+                                "reserved": true,
+                                "values": [
+                                    {
+                                        "spot": "front",
+                                        "url": null,
+                                        "translation": {
+                                            "x": 0,
+                                            "y": 0
+                                        },
+                                        "scale": {
+                                            "x": 1,
+                                            "y": 1
+                                        }
+                                    }
+                                ],
                                 "transitionDelay": 0
                             }
                         ]

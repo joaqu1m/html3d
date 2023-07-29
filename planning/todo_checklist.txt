@@ -1,0 +1,8 @@
+FEITO//- formulação dos tipos de objetos
+FEITO//- formulação do método utilizado para animações
+- formulação do template de objeto principal
+- novo modo de salvamento de modelo para menos consumo de memória
+- formulação e prototipação da interface
+- por a mão na massa
+- responsividade
+- jogar pra produção

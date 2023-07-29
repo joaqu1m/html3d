@@ -1,0 +1,26 @@
+<style>
+    #a {
+        width: 100px;
+        height: 100px;
+        border: 1px solid black;
+    }
+
+    #a>div {
+        width: 200%;
+        height: 100%;
+        background-color: red;
+        clip-path: polygon(50% 0%, 100% 50%, 50% 100%);
+    }
+    #b {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        clip-path: circle(50%);
+    }
+</style>
+<body>
+    <div id="a">
+        <div></div>
+    </div>
+    <div id="b"></div>
+</body>

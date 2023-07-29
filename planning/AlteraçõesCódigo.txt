@@ -2,10 +2,10 @@
 
 - Menu (parecido com o menu do vscode quando vc abre sem projeto)
 - aba em cima com opção "File", onde você pode dar close e open project (sabe tb)
-- reformulação de json para classe
 - alteração nas nomenclaturas e planejamento geral das funções e códigos
 - UI e UX (principal)
--Desenvolvimento em algum framework para agilizar o processo e deixar qualquer mudança mais fácil
+- Desenvolvimento em algum framework para agilizar o processo e deixar qualquer mudança mais fácil
+- Será desenvolvido utilizando TS e jQuery
 
 ::: Influencia diretamente
 
@@ -13,7 +13,9 @@
 - reformulaçao das classes de css
 - planejamento do codigo pensando em animações
 - UI mais parecida com a de programas 3d famosos
-- interface de animação
-- formas 2d e 3d como ideia principal para facilitação
+- interface de animação (barra na parte inferior da tela)
+- para a visão do usuário, existirão apenas formas 3d
 - atalhos para usuarios experientes
 - compiladores para js vanilla, react e vue
+- vai existir o tipo sphere, que é só um círculo que acompanha a direção da câmera
+- quando alterando um objeto de grupo, existe a opção de manter o objeto no mesmo local no plano tridimensional
