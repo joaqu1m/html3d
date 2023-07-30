@@ -8,37 +8,87 @@
                 "name": "default",
                 "transformations": {
                     "translation": {
-                        "x": { "value": 0, "transitionDelay": 0 },
-                        "y": { "value": 0, "transitionDelay": 0 },
-                        "z": { "value": 0, "transitionDelay": 0 }
+                        "x": {
+                            "value": 0,
+                            "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                        },
+                        "y": {
+                            "value": 0,
+                            "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                        },
+                        "z": {
+                            "value": 0,
+                            "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                        }
                     },
                     "rotation": {
-                        "x": { "value": 0, "transitionDelay": 0 },
-                        "y": { "value": 0, "transitionDelay": 0 },
-                        "z": { "value": 0, "transitionDelay": 0 }
+                        "x": {
+                            "value": 0,
+                            "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                        },
+                        "y": {
+                            "value": 0,
+                            "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                        },
+                        "z": {
+                            "value": 0,
+                            "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                        }
                     },
-                    "scale": { "value": 1, "transitionDelay": 0 }
+                    "scale": {
+                        "value": 1,
+                        "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                    }
                 },
                 "polygons": [
                     {
                         "id": 1,
                         "name": "polygon1",
-                        "type": "polygon",
+                        "vertexes": [
+                            { "x": 0, "y": 0 }
+                        ],
                         "transformations": {
                             "translation": {
-                                "x": { "value": 0, "transitionDelay": 0 },
-                                "y": { "value": 0, "transitionDelay": 0 },
-                                "z": { "value": 0, "transitionDelay": 0 }
+                                "x": {
+                                    "value": 0,
+                                    "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                                },
+                                "y": {
+                                    "value": 0,
+                                    "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                                },
+                                "z": {
+                                    "value": 0,
+                                    "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                                }
                             },
                             "rotation": {
-                                "x": { "value": 0, "transitionDelay": 0 },
-                                "y": { "value": 0, "transitionDelay": 0 },
-                                "z": { "value": 0, "transitionDelay": 0 }
+                                "x": {
+                                    "value": 0,
+                                    "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                                },
+                                "y": {
+                                    "value": 0,
+                                    "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                                },
+                                "z": {
+                                    "value": 0,
+                                    "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                                }
                             },
                             "scale": {
-                                "x": { "value": 1, "transitionDelay": 0 },
-                                "y": { "value": 1, "transitionDelay": 0 },
-                                "z": { "value": 1, "transitionDelay": 0 }
+                                "x": {
+                                    "value": 1,
+                                    "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                                },
+                                "y": {
+                                    "value": 1,
+                                    "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                                },
+                                "z": {
+                                    "value": 1,
+                                    "transition": [{ "from": "default", "delay": 0, "duration": 0 }]
+                                }
                             }
                         },
                         "params": []
@@ -56,37 +106,87 @@
                 "name": "phase1",
                 "transformations": {
                     "translation": {
-                        "x": { "value": 0, "transitionDelay": 0 },
-                        "y": { "value": 0, "transitionDelay": 0 },
-                        "z": { "value": 0, "transitionDelay": 0 }
+                        "x": {
+                            "value": 0,
+                            "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                        },
+                        "y": {
+                            "value": 0,
+                            "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                        },
+                        "z": {
+                            "value": 0,
+                            "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                        }
                     },
                     "rotation": {
-                        "x": { "value": 0, "transitionDelay": 0 },
-                        "y": { "value": 0, "transitionDelay": 0 },
-                        "z": { "value": 0, "transitionDelay": 0 }
+                        "x": {
+                            "value": 0,
+                            "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                        },
+                        "y": {
+                            "value": 0,
+                            "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                        },
+                        "z": {
+                            "value": 0,
+                            "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                        }
                     },
-                    "scale": { "value": 1, "transitionDelay": 0 }
+                    "scale": {
+                        "value": 1,
+                        "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                    }
                 },
                 "polygons": [
                     {
                         "id": 2,
                         "name": "polygon2",
-                        "type": "polygon",
+                        "vertexes": [
+                            { "x": 0, "y": 0 }
+                        ],
                         "transformations": {
                             "translation": {
-                                "x": { "value": 0, "transitionDelay": 0 },
-                                "y": { "value": 0, "transitionDelay": 0 },
-                                "z": { "value": 0, "transitionDelay": 0 }
+                                "x": {
+                                    "value": 0,
+                                    "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                                },
+                                "y": {
+                                    "value": 0,
+                                    "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                                },
+                                "z": {
+                                    "value": 0,
+                                    "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                                }
                             },
                             "rotation": {
-                                "x": { "value": 0, "transitionDelay": 0 },
-                                "y": { "value": 0, "transitionDelay": 0 },
-                                "z": { "value": 0, "transitionDelay": 0 }
+                                "x": {
+                                    "value": 0,
+                                    "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                                },
+                                "y": {
+                                    "value": 0,
+                                    "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                                },
+                                "z": {
+                                    "value": 0,
+                                    "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                                }
                             },
                             "scale": {
-                                "x": { "value": 1, "transitionDelay": 0 },
-                                "y": { "value": 1, "transitionDelay": 0 },
-                                "z": { "value": 1, "transitionDelay": 0 }
+                                "x": {
+                                    "value": 1,
+                                    "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                                },
+                                "y": {
+                                    "value": 1,
+                                    "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                                },
+                                "z": {
+                                    "value": 1,
+                                    "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
+                                }
                             }
                         },
                         "params": [
@@ -98,7 +198,7 @@
                                     { "spot": "back", "value": "#ff0000" },
                                     { "spot": "side_0", "value": "#ff0000" }
                                 ],
-                                "transitionDelay": 0
+                                "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
                             },
                             {
                                 "param": "texture",
@@ -141,49 +241,7 @@
                                         }
                                     }
                                 ],
-                                "transitionDelay": 0
-                            }
-                        ]
-                    },
-                    {
-                        "id": 2,
-                        "name": "polygon2",
-                        "type": "circle",
-                        "transformations": {
-                            "translation": {
-                                "x": { "value": 0, "transitionDelay": 0 },
-                                "y": { "value": 0, "transitionDelay": 0 },
-                                "z": { "value": 0, "transitionDelay": 0 }
-                            },
-                            "scale": {
-                                "x": { "value": 1, "transitionDelay": 0 }
-                            }
-                        },
-                        "params": [
-                            {
-                                "param": "bg_color",
-                                "reserved": true,
-                                "values": [{ "spot": "front", "value": "#ff0000" }],
-                                "transitionDelay": 0
-                            },
-                            {
-                                "param": "texture",
-                                "reserved": true,
-                                "values": [
-                                    {
-                                        "spot": "front",
-                                        "url": null,
-                                        "translation": {
-                                            "x": 0,
-                                            "y": 0
-                                        },
-                                        "scale": {
-                                            "x": 1,
-                                            "y": 1
-                                        }
-                                    }
-                                ],
-                                "transitionDelay": 0
+                                "transition": [{ "from": "phase1", "delay": 0, "duration": 0 }]
                             }
                         ]
                     }
