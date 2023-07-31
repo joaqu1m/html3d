@@ -191,7 +191,7 @@
                         },
                         "params": [
                             {
-                                "param": "bg_color",
+                                "param": "color",
                                 "reserved": true,
                                 "values": [
                                     { "spot": "front", "value": "#ff0000" },

@@ -19,3 +19,4 @@
 - compiladores para js vanilla, react e vue
 - vai existir o tipo sphere, que é só um círculo que acompanha a direção da câmera
 - quando alterando um objeto de grupo, existe a opção de manter o objeto no mesmo local no plano tridimensional
+- ao passar a imagem pra blob, o usuário vai ter a opção de diminuir a resolução da imagem

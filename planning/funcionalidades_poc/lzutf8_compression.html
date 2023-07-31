@@ -1,0 +1,28 @@
+<body>
+    <button onclick="download()">download</button>
+    <br>
+    <input type="file" id="fileUpload" placeholder="upload">
+    <p id="uploaded"></p>
+</body>
+<script id="lzutf8" src="https://cdn.jsdelivr.net/npm/lzutf8/build/production/lzutf8.js"></script>
+<script>
+    const data = LZUTF8.compress("olá mundo}}}}}a}d}c}}}}}}bas}}}}}}")
+
+    const writer = new FileReader()
+
+    writer.onloadend = () => {
+        const a = document.createElement("a")
+        a.href = writer.result
+        a.download = "model.html3d"
+        a.click()
+    }
+    const download = () => writer.readAsDataURL(new Blob([data.buffer], {type: 'application/octet-binary'}))
+
+    document.getElementById('fileUpload').addEventListener('change', ({ target }) => {
+        const reader = new FileReader()
+        reader.onloadend = () => {
+            console.log(LZUTF8.decompress(new Uint8Array(reader.result)))
+        }
+        reader.readAsArrayBuffer(target.files[0])
+    });
+</script>
