@@ -6,7 +6,7 @@
 </body>
 <script id="lzutf8" src="https://cdn.jsdelivr.net/npm/lzutf8/build/production/lzutf8.js"></script>
 <script>
-    const data = LZUTF8.compress("olá mundo}}}}}a}d}c}}}}}}bas}}}}}}")
+    const data = LZUTF8.compress("![GENERATED_ON=v2.0&METHOD=simplified]" + "olá mundo}}}}}a}d}c}}}}}}bas}}}}}}")
 
     const writer = new FileReader()
 
@@ -21,7 +21,11 @@
     document.getElementById('fileUpload').addEventListener('change', ({ target }) => {
         const reader = new FileReader()
         reader.onloadend = () => {
-            console.log(LZUTF8.decompress(new Uint8Array(reader.result)))
+            let decompressedString = LZUTF8.decompress(new Uint8Array(reader.result))
+            while (decompressedString[decompressedString.length - 1].charCodeAt() === 0) {
+                decompressedString = decompressedString.substring(0, decompressedString.length - 1)
+            }
+            console.log(decompressedString)
         }
         reader.readAsArrayBuffer(target.files[0])
     });
