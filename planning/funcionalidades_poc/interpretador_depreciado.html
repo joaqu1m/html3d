@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #testando {
+            width: 150px;
+            height: 150px;
+            animation: rotating 10s infinite;
+            animation-timing-function: linear;
+        }
+
+        @keyframes rotating {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="testando"></div>
+</body>
+
+</html>
+<script src="https://joaqu1m.github.io/.jModel-web-tool/interpreter/browserVanilla.js"></script>
+<script>
+    html3dRead(
+        "testando",
+        "1;Corpo;0;0;0;0;0;0|2;braço1;0;0;0;-50;-25;0|3;braço2;0;0;0;50;-25;0|1;;75;100;0;0;0;0;0;25;#47b9ff;1;Quadrado|2;;75;100;0;0;0;0;0;-25;#47b9ff;1;Quadrado|3;;75;50;90;110.59;0;10;0;5;#bcffb8;2;Quadrado|4;;75;50;90;247.88;0;-10;0;5;#bcffb8;3;Quadrado"
+    )
+</script>

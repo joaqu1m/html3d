@@ -1,24 +1,19 @@
 <template>
   <div>
     <p>Product</p>
+    <p>{{ aaa }}</p>
+    <button @click="bbb">bbb</button>
+    <p>{{ ccc }}</p>
   </div>
 </template>
-<script lang="ts">
-export default {
-  setup() {
-    const cupsOfWater: globalThis.Ref<number> = ref(0);
-    const lastCup: globalThis.Ref<Date> = ref(new Date());
+<script setup lang="ts">
 
-    function drinkCup(): void {
-      cupsOfWater.value++;
-      lastCup.value = new Date();
-    }
+const aaa: globalThis.Ref<number> = ref(0);
+const ccc: globalThis.Ref<Date> = ref(new Date());
 
-    return {
-      cupsOfWater,
-      lastCup,
-      drinkCup,
-    };
-  },
-};
+function bbb(): void {
+  aaa.value++;
+  ccc.value = new Date();
+}
+
 </script>
