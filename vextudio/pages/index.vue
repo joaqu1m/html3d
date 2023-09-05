@@ -1,7 +1,7 @@
 <template>
     <div>
         <p>Home</p>
-        <input type="text" ref="ap">
+        <input type="text" @change="mostrar" ref="ap">
     </div>
 </template>
 
@@ -10,5 +10,7 @@ import { ref } from "vue";
 
 const ap: globalThis.Ref<number> = ref(0);
 
-console.log(ap)
+const mostrar = () => {
+    console.log(ap);
+};
 </script>

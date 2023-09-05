@@ -1,6 +1,10 @@
+<script setup lang="ts">
+</script>
+
 <template>
-  <NuxtLayout>
-    <NuxtPage />
+  <NuxtLayout name="card">
+	<template v-slot:title>
+		Card normal
+	</template>
   </NuxtLayout>
 </template>
-<script lang="ts"></script>
