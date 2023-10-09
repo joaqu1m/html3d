@@ -16,6 +16,8 @@ export default {
         "primary-gray": "#313131",
         "primary-black": "#242424",
         "primary-white": "#F2F2F2",
+        "menu-black": "#252525",
+        "menu-light-gray": "#444444",
         "secondary-gray": "#393939",
         "3d-gradient-start": "#767676",
         "3d-gradient-end": "#515151",
