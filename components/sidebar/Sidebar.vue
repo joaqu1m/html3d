@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { ICells } from "~/types";
 import Cell from "~/components/sidebar/Cell.vue";
 
@@ -17,22 +17,22 @@ const { tabWidth, leftDirection, cells } = defineProps<ICells>();
 <template>
   <div
     v-if="tabWidth"
-    class="h-full relative bg-secondary-gray flex flex-col"
+    ref="sidebarHTMLElement"
     :style="{
       width: tabWidth + 'px',
     }"
-    ref="sidebarHTMLElement"
+    class="h-full relative bg-secondary-gray flex flex-col"
   >
     <Cell
       v-for="(cell, i) in cells"
       :key="i"
-      :ownHeight="cell.height"
       :isLastComponent="i === cells.length - 1"
+      :ownHeight="cell.height"
       :tabs="cell.tabs"
     />
     <div
-      class="h-full w-[10px] cursor-col-resize absolute hover:bg-[rgba(255,255,255,0.1)] transition-colors duration-300 z-10"
       :class="leftDirection ? '-right-[5px]' : '-left-[5px]'"
+      class="h-full w-[10px] cursor-col-resize absolute hover:bg-[rgba(255,255,255,0.1)] transition-colors duration-300 z-10"
       @mousedown="$emit('selectElement')"
     />
   </div>
