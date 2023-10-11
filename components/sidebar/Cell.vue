@@ -2,18 +2,19 @@
 import x_icon from "~/assets/icons/x_icon.svg";
 import { ICellTab } from "~/types";
 
-const { ownHeight, isLastComponent, tabs } = defineProps<{
-  ownHeight: number | null,
-  isLastComponent: boolean,
-  tabs: ICellTab[]
-}>();
+const { height, isLastComponent, tabs } =
+  defineProps<{
+    height: number | null,
+    isLastComponent: boolean,
+    tabs: ICellTab[]
+  }>();
 
 const selectedTab = ref<number>(0);
 </script>
 <template>
   <div
     :class="{ grow: isLastComponent }"
-    :style="{ height: ownHeight + 'px' }"
+    :style="{ height: height + 'px' }"
     class="flex flex-col relative"
   >
     <div class="bg-menu-light-gray h-10 flex overflow-x-hidden">
@@ -37,7 +38,7 @@ const selectedTab = ref<number>(0);
     <div
       v-if="!isLastComponent"
       class="w-full h-[10px] cursor-row-resize absolute hover:bg-[rgba(255,255,255,0.1)] transition-colors duration-300 -bottom-[5px] z-10"
-      @click="$emit('select')"
+      @mousedown="$emit('selectCell')"
     />
   </div>
 </template>

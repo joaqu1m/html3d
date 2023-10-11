@@ -2,14 +2,27 @@
 import { ICells } from "~/types";
 import Cell from "~/components/sidebar/Cell.vue";
 
+const mouseMoveEvent = inject("mouseMoveEvent");
+const deselectEvent = inject("deselectEvent");
+
 const sidebarHTMLElement = ref<HTMLElement | null>(null);
 
 let totalHeight = ref<number | null>(null);
+let selectedCell = ref<number | null>();
 
 onMounted(() => {
   if (sidebarHTMLElement.value !== null && "offsetHeight" in sidebarHTMLElement.value) {
     totalHeight.value = sidebarHTMLElement.value.offsetHeight;
   }
+});
+
+watch(mouseMoveEvent, ({ movementY }) => {
+  if (typeof selectedCell.value === "number") {
+    cells[selectedCell.value].height += movementY;
+  }
+});
+watch(deselectEvent, () => {
+  selectedCell.value = null;
 });
 
 const { tabWidth, leftDirection, cells } = defineProps<ICells>();
@@ -26,10 +39,12 @@ const { tabWidth, leftDirection, cells } = defineProps<ICells>();
     <Cell
       v-for="(cell, i) in cells"
       :key="i"
+      :height="cell.height"
       :isLastComponent="i === cells.length - 1"
-      :ownHeight="cell.height"
       :tabs="cell.tabs"
+      @selectCell="selectedCell = i"
     />
+    {{ cells?.map((item) => item.height) }}
     <div
       :class="leftDirection ? '-right-[5px]' : '-left-[5px]'"
       class="h-full w-[10px] cursor-col-resize absolute hover:bg-[rgba(255,255,255,0.1)] transition-colors duration-300 z-10"
