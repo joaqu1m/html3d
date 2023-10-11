@@ -1,7 +1,8 @@
 <script lang="ts" setup>
+import AnimationMenu from "~/components/sidebar/AnimationMenu.vue";
+import ObjectTree from "~/components/sidebar/ObjectTree.vue";
 import PolygonOptions from "~/components/sidebar/PolygonOptions.vue";
-
-type MainTab = "leftTab" | "rightTab";
+import { MainTab } from "~/types";
 
 const mainTabs = {
   leftTab: ref<number | null>(null),
@@ -26,16 +27,13 @@ const selectedElement = ref<MainTab | null>(null);
           let newTabWidth;
           if (selectedElement === 'rightTab') {
             newTabWidth =
-              //@ts-ignore
               mainTabs[selectedElement].value - movementX;
           } else {
             newTabWidth =
-              //@ts-ignore
               mainTabs[selectedElement].value + movementX;
           }
           if (newTabWidth < 200) newTabWidth = 200;
           if (newTabWidth > 500) newTabWidth = 500;
-          //@ts-ignore
           mainTabs[selectedElement].value = newTabWidth;
         }
       }
@@ -47,18 +45,31 @@ const selectedElement = ref<MainTab | null>(null);
         :leftDirection="true"
         :tabWidth="mainTabs['leftTab'].value"
         @selectElement="selectedElement = 'leftTab'"
+        :cells="[]"
       />
       <div
         class="bg-gradient-to-b from-3d-gradient-start to-3d-gradient-end max-w-full max-h-full grow"
-      >
-        {{ selectedElement }}
-        {{ mainTabs[selectedElement!!] }}
-      </div>
+      />
       <Sidebar
         :leftDirection="false"
         :tabWidth="mainTabs['rightTab'].value"
         @selectElement="selectedElement = 'rightTab'"
-        :content="[[{ title: 'Polygon Options', component: PolygonOptions }]]"
+        :cells="[
+          {
+            tabs: [{ title: 'Object Tree', component: ObjectTree }],
+            height: 200,
+          },
+          {
+            tabs: [
+              {
+                title: 'Polygon Options',
+                component: PolygonOptions,
+              },
+              { title: 'Animation Menu', component: AnimationMenu },
+            ],
+            height: null,
+          },
+        ]"
       />
     </div>
   </div>
