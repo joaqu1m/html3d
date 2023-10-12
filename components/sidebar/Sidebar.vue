@@ -44,7 +44,6 @@ const { tabWidth, leftDirection, cells } = defineProps<ICells>();
       :tabs="cell.tabs"
       @selectCell="selectedCell = i"
     />
-    {{ cells?.map((item) => item.height) }}
     <div
       :class="leftDirection ? '-right-[5px]' : '-left-[5px]'"
       class="h-full w-[10px] cursor-col-resize absolute hover:bg-[rgba(255,255,255,0.1)] transition-colors duration-300 z-10"
