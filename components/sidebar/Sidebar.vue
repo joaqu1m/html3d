@@ -2,43 +2,51 @@
 import { ICells } from '~/types';
 import Cell from '~/components/sidebar/Cell.vue';
 
+let isSomethingSelected = useIsSomethingSelected();
+
 const mouseMoveEvent = inject('mouseMoveEvent');
 const deselectEvent = inject('deselectEvent');
 
 const sidebarHTMLElement = ref<HTMLElement | null>(null);
 
 let totalHeight = ref<number | null>(null);
-let selectedCell = ref<number | null>();
+let selectedCell = ref<number | null>(null);
 
-const getCellsHeight = () => {
-  const cellsCopy = [...cells];
-  cellsCopy[cellsCopy.length - 1].height = cells.reduce((acc, item, i) => {
-    if (i === cells.length - 1) {
-      return acc;
-    }
-    return acc!! - item.height!!;
-  }, totalHeight.value);
-  return cellsCopy;
-};
+const isHeightLoading = computed(() => {
+  return totalHeight.value === null;
+});
 
 onMounted(() => {
-  if (
-    sidebarHTMLElement.value !== null &&
-    'offsetHeight' in sidebarHTMLElement.value
-  ) {
+  if (sidebarHTMLElement.value && 'offsetHeight' in sidebarHTMLElement.value) {
     totalHeight.value = sidebarHTMLElement.value.offsetHeight;
+    for (let i = 0; i < cells.length; i++) {
+      cells[i].height = totalHeight.value / cells.length;
+    }
   }
 });
 
 watch(mouseMoveEvent, ({ movementY }: any) => {
   if (typeof selectedCell.value === 'number') {
-    if (getCellsHeight()[selectedCell.value + 1].height!! >= 200) {
-      cells[selectedCell.value].height += movementY;
+    if (movementY < 0) {
+      for (let i = selectedCell.value; i >= 0; i--) {
+        if (cells[i] && cells[i].height!! >= 200) {
+          cells[selectedCell.value + 1].height!! -= movementY;
+          cells[i].height += movementY;
+          break;
+        }
+      }
+    } else {
+      for (let i = selectedCell.value; i < cells.length; i++) {
+        if (cells[i + 1] && cells[i + 1].height!! >= 200) {
+          cells[selectedCell.value].height += movementY;
+          cells[i + 1].height!! -= movementY;
+          break;
+        }
+      }
     }
   }
 });
-// @ts-ignore
-watch(deselectEvent, () => {
+watch(deselectEvent!!, () => {
   selectedCell.value = null;
 });
 
@@ -53,14 +61,21 @@ const { tabWidth, leftDirection, cells } = defineProps<ICells>();
     }"
     class="h-full relative bg-secondary-gray flex flex-col"
   >
-    <Cell
-      v-for="(cell, i) in cells"
-      :key="i"
-      :height="cell.height"
-      :isLastComponent="i === cells.length - 1"
-      :tabs="cell.tabs"
-      @selectCell="selectedCell = i"
-    />
+    <template v-if="!isHeightLoading">
+      <Cell
+        v-for="(cell, i) in cells"
+        :key="i"
+        :height="cell.height!!"
+        :isLastComponent="i === cells.length - 1"
+        :tabs="cell.tabs"
+        @selectCell="
+          () => {
+            selectedCell = i;
+            isSomethingSelected = true;
+          }
+        "
+      />
+    </template>
     <div
       :class="leftDirection ? '-right-[5px]' : '-left-[5px]'"
       class="h-full w-[10px] cursor-col-resize absolute hover:bg-[rgba(255,255,255,0.1)] transition-colors duration-300 z-10"

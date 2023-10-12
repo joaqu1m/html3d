@@ -4,6 +4,8 @@ import PolygonOptions from '~/components/sidebar/PolygonOptions.vue';
 import { MainTab } from '~/types';
 import AnimationMenu from '~/components/sidebar/AnimationMenu.vue';
 
+let isSomethingSelected = useIsSomethingSelected();
+
 const mainTabs = {
   leftTab: ref<number | null>(null),
   rightTab: ref<number | null>(300),
@@ -14,6 +16,7 @@ const deselectEvent = ref(null);
 
 const handleDeselect = (event: any) => {
   deselectEvent.value = event;
+  isSomethingSelected.value = false;
   selectedElement.value = null;
 };
 
@@ -37,7 +40,8 @@ let selectedElement = ref<MainTab | null>(null);
 const leftCells = ref([
   {
     tabs: [{ title: 'Object Tree', component: markRaw(ObjectTree) }],
-    height: 200,
+    height: null,
+    isLastComponent: null,
   },
   {
     tabs: [
@@ -46,11 +50,13 @@ const leftCells = ref([
         component: markRaw(PolygonOptions),
       },
     ],
-    height: 200,
+    height: null,
+    isLastComponent: null,
   },
   {
     tabs: [{ title: 'Animation Menu', component: markRaw(AnimationMenu) }],
     height: null,
+    isLastComponent: null,
   },
 ]);
 
@@ -61,6 +67,7 @@ provide('deselectEvent', deselectEvent);
 <template>
   <div
     class="w-screen h-screen flex flex-col"
+    :class="isSomethingSelected && 'no-user-select'"
     @mousedown="
       (event) => {
         if (event.button === 2) handleDeselect(event);
@@ -79,12 +86,19 @@ provide('deselectEvent', deselectEvent);
       />
       <div
         class="bg-gradient-to-b from-3d-gradient-start to-3d-gradient-end max-w-full max-h-full grow"
-      />
+      >
+        <!-- {{ isSomethingSelected }} -->
+      </div>
       <Sidebar
         :cells="leftCells"
         :leftDirection="false"
         :tabWidth="mainTabs['rightTab'].value"
-        @selectElement="selectedElement = 'rightTab'"
+        @selectElement="
+          () => {
+            selectedElement = 'rightTab';
+            isSomethingSelected = true;
+          }
+        "
       />
     </div>
   </div>

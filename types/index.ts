@@ -1,6 +1,6 @@
-import { defineComponent } from "#imports";
+import { defineComponent } from '#imports';
 
-export type MainTab = "leftTab" | "rightTab";
+export type MainTab = 'leftTab' | 'rightTab';
 
 export type ICells = {
   tabWidth: number | null;
@@ -11,7 +11,14 @@ export type ICells = {
 export type ICell = {
   tabs: ICellTab[];
   height: number | null;
+  isLastComponent: boolean | null;
 };
+
+export type ICellNonNull = {
+  tabs: ICellTab[];
+  height: number;
+  isLastComponent: boolean;
+}
 
 export type ICellTab = {
   title: string;
