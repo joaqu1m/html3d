@@ -1,13 +1,12 @@
 <script lang="ts" setup>
-import x_icon from "~/assets/icons/x_icon.svg";
-import { ICellTab } from "~/types";
+import x_icon from '~/assets/icons/x_icon.svg';
+import { ICellTab } from '~/types';
 
-const { height, isLastComponent, tabs } =
-  defineProps<{
-    height: number | null,
-    isLastComponent: boolean,
-    tabs: ICellTab[]
-  }>();
+const { height, isLastComponent, tabs } = defineProps<{
+  height: number | null;
+  isLastComponent: boolean;
+  tabs: ICellTab[];
+}>();
 
 const selectedTab = ref<number>(0);
 </script>
@@ -32,9 +31,7 @@ const selectedTab = ref<number>(0);
       </div>
     </div>
     <div class="bg-menu-black h-4" />
-    <component
-      :is="tabs[selectedTab].component"
-    />
+    <component :is="tabs[selectedTab].component" />
     <div
       v-if="!isLastComponent"
       class="w-full h-[10px] cursor-row-resize absolute hover:bg-[rgba(255,255,255,0.1)] transition-colors duration-300 -bottom-[5px] z-10"

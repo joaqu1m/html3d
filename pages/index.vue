@@ -1,28 +1,28 @@
 <script lang="ts" setup>
-import ObjectTree from "~/components/sidebar/ObjectTree.vue";
-import PolygonOptions from "~/components/sidebar/PolygonOptions.vue";
-import { MainTab } from "~/types";
-import AnimationMenu from "~/components/sidebar/AnimationMenu.vue";
+import ObjectTree from '~/components/sidebar/ObjectTree.vue';
+import PolygonOptions from '~/components/sidebar/PolygonOptions.vue';
+import { MainTab } from '~/types';
+import AnimationMenu from '~/components/sidebar/AnimationMenu.vue';
 
 const mainTabs = {
   leftTab: ref<number | null>(null),
-  rightTab: ref<number | null>(300)
+  rightTab: ref<number | null>(300),
 };
 
 const mouseMoveEvent = ref(null);
 const deselectEvent = ref(null);
 
-const handleDeselect = (event) => {
+const handleDeselect = (event: any) => {
   deselectEvent.value = event;
   selectedElement.value = null;
 };
 
-const handleMouseMove = (event) => {
+const handleMouseMove = (event: any) => {
   mouseMoveEvent.value = event;
   if (selectedElement.value && mainTabs[selectedElement.value]) {
     let newTabWidth;
-    if (selectedElement.value === "rightTab") {
-      newTabWidth = mainTabs[selectedElement.value].value - event.movementX;
+    if (selectedElement.value === 'rightTab') {
+      newTabWidth = mainTabs[selectedElement.value].value!! - event.movementX;
     } else {
       newTabWidth = mainTabs[selectedElement.value].value + event.movementX;
     }
@@ -34,38 +34,38 @@ const handleMouseMove = (event) => {
 
 let selectedElement = ref<MainTab | null>(null);
 
-const leftCells = ref(
-  [
-    {
-      tabs: [{ title: "Object Tree", component: markRaw(ObjectTree) }],
-      height: 200
-    },
-    {
-      tabs: [
-        {
-          title: "Polygon Options",
-          component: markRaw(PolygonOptions)
-        }
-      ],
-      height: 200
-    },
-    {
-      tabs: [
-        { title: "Animation Menu", component: markRaw(AnimationMenu) }
-      ],
-      height: null
-    }
-  ]
-);
+const leftCells = ref([
+  {
+    tabs: [{ title: 'Object Tree', component: markRaw(ObjectTree) }],
+    height: 200,
+  },
+  {
+    tabs: [
+      {
+        title: 'Polygon Options',
+        component: markRaw(PolygonOptions),
+      },
+    ],
+    height: 200,
+  },
+  {
+    tabs: [{ title: 'Animation Menu', component: markRaw(AnimationMenu) }],
+    height: null,
+  },
+]);
 
-provide("mouseMoveEvent", mouseMoveEvent);
-provide("deselectEvent", deselectEvent);
+provide('mouseMoveEvent', mouseMoveEvent);
+provide('deselectEvent', deselectEvent);
 </script>
 
 <template>
   <div
     class="w-screen h-screen flex flex-col"
-    @mousedown="(event) => { if (event.button === 2) handleDeselect(event) }"
+    @mousedown="
+      (event) => {
+        if (event.button === 2) handleDeselect(event);
+      }
+    "
     @mousemove="handleMouseMove"
     @mouseup="handleDeselect"
   >

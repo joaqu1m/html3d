@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { title } = defineProps(["title"]);
+const { title } = defineProps<{ title: string }>();
 </script>
 <template>
   <div class="h-[80%] bg-primary-black text-primary-white px-2 cursor-pointer">

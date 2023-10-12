@@ -1,26 +1,43 @@
 <script lang="ts" setup>
-import { ICells } from "~/types";
-import Cell from "~/components/sidebar/Cell.vue";
+import { ICells } from '~/types';
+import Cell from '~/components/sidebar/Cell.vue';
 
-const mouseMoveEvent = inject("mouseMoveEvent");
-const deselectEvent = inject("deselectEvent");
+const mouseMoveEvent = inject('mouseMoveEvent');
+const deselectEvent = inject('deselectEvent');
 
 const sidebarHTMLElement = ref<HTMLElement | null>(null);
 
 let totalHeight = ref<number | null>(null);
 let selectedCell = ref<number | null>();
 
+const getCellsHeight = () => {
+  const cellsCopy = [...cells];
+  cellsCopy[cellsCopy.length - 1].height = cells.reduce((acc, item, i) => {
+    if (i === cells.length - 1) {
+      return acc;
+    }
+    return acc!! - item.height!!;
+  }, totalHeight.value);
+  return cellsCopy;
+};
+
 onMounted(() => {
-  if (sidebarHTMLElement.value !== null && "offsetHeight" in sidebarHTMLElement.value) {
+  if (
+    sidebarHTMLElement.value !== null &&
+    'offsetHeight' in sidebarHTMLElement.value
+  ) {
     totalHeight.value = sidebarHTMLElement.value.offsetHeight;
   }
 });
 
-watch(mouseMoveEvent, ({ movementY }) => {
-  if (typeof selectedCell.value === "number") {
-    cells[selectedCell.value].height += movementY;
+watch(mouseMoveEvent, ({ movementY }: any) => {
+  if (typeof selectedCell.value === 'number') {
+    if (getCellsHeight()[selectedCell.value + 1].height!! >= 200) {
+      cells[selectedCell.value].height += movementY;
+    }
   }
 });
+// @ts-ignore
 watch(deselectEvent, () => {
   selectedCell.value = null;
 });
