@@ -21,6 +21,7 @@ export type ICellNonNull = {
 }
 
 export type ICellTab = {
+  id: string;
   title: string;
   component: ReturnType<typeof defineComponent>;
 };

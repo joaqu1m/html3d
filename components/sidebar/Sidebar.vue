@@ -2,7 +2,8 @@
 import { ICells } from '~/types';
 import Cell from '~/components/sidebar/Cell.vue';
 
-let isSomethingSelected = useIsSomethingSelected();
+const isSomethingSelected = useIsSomethingSelected();
+const heldTab = useHeldTab();
 
 const mouseMoveEvent = inject('mouseMoveEvent');
 const deselectEvent = inject('deselectEvent');

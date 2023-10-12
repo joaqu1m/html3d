@@ -3,6 +3,7 @@ import ObjectTree from '~/components/sidebar/ObjectTree.vue';
 import PolygonOptions from '~/components/sidebar/PolygonOptions.vue';
 import { MainTab } from '~/types';
 import AnimationMenu from '~/components/sidebar/AnimationMenu.vue';
+import x_icon from '~/assets/icons/x_icon.svg';
 
 let isSomethingSelected = useIsSomethingSelected();
 
@@ -18,6 +19,7 @@ const handleDeselect = (event: any) => {
   deselectEvent.value = event;
   isSomethingSelected.value = false;
   selectedElement.value = null;
+  heldTab.value.tab = null;
 };
 
 const handleMouseMove = (event: any) => {
@@ -33,19 +35,32 @@ const handleMouseMove = (event: any) => {
     if (newTabWidth > 500) newTabWidth = 500;
     mainTabs[selectedElement.value].value = newTabWidth;
   }
+  if (heldTab.value.tab) {
+    heldTab.value.coords.x = event.x;
+    heldTab.value.coords.y = event.y;
+  }
 };
 
 let selectedElement = ref<MainTab | null>(null);
 
+const heldTab = useHeldTab();
+
 const leftCells = ref([
   {
-    tabs: [{ title: 'Object Tree', component: markRaw(ObjectTree) }],
+    tabs: [
+      {
+        id: 'objecttree',
+        title: 'Object Tree',
+        component: markRaw(ObjectTree),
+      },
+    ],
     height: null,
     isLastComponent: null,
   },
   {
     tabs: [
       {
+        id: 'polygonoptions',
         title: 'Polygon Options',
         component: markRaw(PolygonOptions),
       },
@@ -54,7 +69,13 @@ const leftCells = ref([
     isLastComponent: null,
   },
   {
-    tabs: [{ title: 'Animation Menu', component: markRaw(AnimationMenu) }],
+    tabs: [
+      {
+        id: 'animationmenu',
+        title: 'Animation Menu',
+        component: markRaw(AnimationMenu),
+      },
+    ],
     height: null,
     isLastComponent: null,
   },
@@ -66,7 +87,7 @@ provide('deselectEvent', deselectEvent);
 
 <template>
   <div
-    class="w-screen h-screen flex flex-col"
+    class="w-screen h-screen flex flex-col overflow-hidden"
     :class="isSomethingSelected && 'no-user-select'"
     @mousedown="
       (event) => {
@@ -76,6 +97,31 @@ provide('deselectEvent', deselectEvent);
     @mousemove="handleMouseMove"
     @mouseup="handleDeselect"
   >
+    <div
+      v-if="heldTab.tab"
+      class="absolute flex flex-col h-[300px] w-[400px] z-50 opacity-50"
+      :style="{
+        left: heldTab.coords.x + 5 + 'px',
+        top: heldTab.coords.y + 5 + 'px',
+      }"
+    >
+      <div class="min-h-[40px] flex overflow-x-hidden">
+        <div
+          class="bg-menu-black flex items-center justify-center h-full text-primary-white font-medium text-sm px-3 gap-2 min-w-max cursor-pointer select-none"
+        >
+          {{ heldTab.tab.title }}
+          <button>
+            <img :src="x_icon" alt="Close Icon" class="w-4" />
+          </button>
+        </div>
+      </div>
+      <div class="bg-menu-black min-h-[16px]" />
+      <div
+        class="flex flex-col h-full w-full overflow-y-hidden p-4 gap-2 bg-secondary-gray"
+      >
+        <component :is="heldTab.tab.component" />
+      </div>
+    </div>
     <Header />
     <div class="grow flex">
       <Sidebar
@@ -86,9 +132,7 @@ provide('deselectEvent', deselectEvent);
       />
       <div
         class="bg-gradient-to-b from-3d-gradient-start to-3d-gradient-end max-w-full max-h-full grow"
-      >
-        <!-- {{ isSomethingSelected }} -->
-      </div>
+      />
       <Sidebar
         :cells="leftCells"
         :leftDirection="false"

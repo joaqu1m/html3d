@@ -1,7 +1,10 @@
 <script lang="ts" setup>
 useHead({
-  title: "Vextudio"
-})
+  title: 'Vextudio',
+  bodyAttrs: {
+    class: 'overflow-hidden',
+  },
+});
 </script>
 
 <template>
